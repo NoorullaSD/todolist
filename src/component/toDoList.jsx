@@ -6,7 +6,7 @@ import { MyAppContext } from "./context";
 import Tags from './tags';
 import Today from './today';
 import Calender from './calender';
-import UpComing from './upcoming';
+import UpComing from "./UpComing";
 import StickyWall from './stickyWall';
 import NavBarTasks from './navBarTasks';
 import NavBarLists from './navBarLists';
