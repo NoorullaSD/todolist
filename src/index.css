@@ -1,0 +1,191 @@
+.full-container {
+    margin: 0px;
+    margin-top: 10px;
+}
+
+.drawer_container {
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu_text {
+    display: inline-flex;
+    text-align: start;
+    font-size: 16px;
+    color: '#333';
+}
+
+.input-group {
+    margin-top: 10px;
+}
+
+.form-control,
+.input-group-text {
+    border: 0;
+}
+
+.list-tittle {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.listcontainer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.work-container {
+    margin-top: 20px;
+}
+
+.list-item {
+    display: inline-flex;
+    align-items: center;
+}
+
+.badge {
+    background-color: #dbdada;
+    color: rgb(61, 60, 60);
+}
+
+.list-group-item {
+    border: 0px;
+    font-weight: 500;
+    font-size: 12px;
+    background-color: #f0f0f0;
+}
+
+.add-container {
+    border: 0px;
+    align-items: start;
+}
+
+.colmn-container {
+    overflow-y: auto;
+    background-color: "#f0f0f0";
+    border-radius: "10px";
+    padding: "10px";
+    height: "100%"
+}
+
+.info-container {
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.info {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.task-item {
+    width: 24%;
+    height: 200px;
+    padding: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+
+.input_title {
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    padding: 8px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.message-input-box {
+    width: 100%;
+    height: 20vh;
+    resize: none;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.card-container {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    padding: 10px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+.styled-line {
+    border: none;
+    height: 1px;
+    background-color: #333;
+    width: 100%;
+    margin: 0px 0;
+}
+
+.enter-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Change all day cells background color */
+.fc-daygrid-day {
+    background-color: #ffffff;
+}
+
+/* Change specific date text */
+.fc-daygrid-day-number {
+    color: #0a0808;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none
+}
+
+.fc-day-today {
+    background-color: rgba(255, 0, 0, 0.5) !important;
+}
+
+.fc-event-time {
+    display: none !important;
+}
+
+/* Target the weekday header text */
+.fc .fc-col-header-cell-cushion {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    text-transform: uppercase;
+    text-decoration: none
+}
+
+.modal {
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
