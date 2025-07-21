@@ -67,7 +67,7 @@ function NavBarTasks(props) {
                                         {item?.count}
                                     </span>
                                 }
-                                {item?.title == "Calender" && events.length > 0 &&
+                                {item?.title == "Calender" && events?.length > 0 &&
                                     < MdDelete size={22} style={{ cursor: 'pointer' }} color="rgba(255, 0, 0, 0.5)"
                                         onClick={() => {
                                             const confirm = window.confirm("Do you want to delete all events?");
