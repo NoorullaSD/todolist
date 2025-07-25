@@ -7,6 +7,11 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import Modal from 'react-modal';
 import { MyAppContext } from './context';
+import AddEvents from './addEvents';
+import { MdOutlineTimer } from "react-icons/md";
+import { ImCross } from "react-icons/im";
+
+
 // Modal.setAppElement('#root');
 
 
@@ -20,32 +25,25 @@ export default function Calendar() {
     const [isModalOpen, setIsModalOpen] = useState()
 
     const [selectedEvent, setSelectedEvent] = useState(null);
-    const [isModalOpen1, setIsModalOpen1] = useState(false);
+    const [isEventModalOpen, setIsEventModalOpen] = useState(false);
+    const [upComingTempList, setUpcominTempList] = useState([{
+        id: 0,
+        title: "",
+        description: ""
+    }]);
 
-    const customStyles = {
-        content: {
-            width: '500px',
-            height: '400px',
-            margin: 'auto', // center horizontally
-            padding: '20px',
-            borderRadius: '10px',
-        },
-        overlay: {
-            backgroundColor: 'rgba(0, 0, 0, 0.5)', zIndex: 5
-        }
-    };
     const handleSave = () => {
+        const now = new Date();
         const newEvent = {
             id: Date.now().toString(),
             title: title,
             description: description,
+            date: now.toLocaleDateString(),
+            time: now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
             start: `${selectedDate}T${time}`,
-            end: `${selectedDate}T${time}`, // or calculate based on duration
+            end: `${selectedDate}T${time}`,
         };
-
         const updatedEvents = [...events, newEvent];
-        console.log("updatedEvents-->>", updatedEvents);
-
         setEvents(updatedEvents);
         localStorage.setItem("calendarEvents", JSON.stringify(updatedEvents));
         setIsModalOpen(false);
@@ -76,8 +74,18 @@ export default function Calendar() {
         setSelectedEvent({
             title: event?._def?.title,
             description: event?._def?.extendedProps?.description, // if you have custom field
+            date: event?._def?.extendedProps?.date,
+            time: event?._def?.extendedProps?.time
         });
-        setIsModalOpen1(true); // open modal
+        setIsEventModalOpen(true); // open modal
+    };
+
+    const handleTitleChange = (e) => {
+        setTitle(e.target.value)
+    };
+
+    const handleMessageChange = (e) => {
+        setDescription(e.target.value.slice(0, 400))
     };
 
     return (
@@ -102,27 +110,48 @@ export default function Calendar() {
             {
                 selectedEvent &&
                 <Modal
-                    isOpen={isModalOpen1}
-                    onRequestClose={() => setIsModalOpen(false)}
-                    style={customStyles}
+                    isOpen={isEventModalOpen}
+                    onRequestClose={() => setIsEventModalOpen(false)}
+                    style={{
+                        content: {
+                            width: '80vh',
+                            height: '60vh',
+                            backgroundColor: "transparent",
+                            margin: 'auto', // center horizontally
+                            padding: '20px',
+                            borderRadius: '10px',
+                            alignItems: "center",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "space-between"
+                        },
+                        overlay: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.5)', zIndex: 5
+                        }
+                    }}
                 >
-                    <h3>{selectedEvent.title}</h3>
-                    <p>{selectedEvent.description}</p>
-                    <button onClick={() => setIsModalOpen1(false)}>Close</button>
+                    <div style={{ display: "flex", width: "90%", justifyContent: "space-between", alignItems: "center" }}>
+                        <h4 className='display-6 text-light'>{"Your task here!"}</h4>
+                        <ImCross className='text-light' style={{ marginBottom: "5px", cursor: 'pointer' }} onClick={() => setIsEventModalOpen(false)} />
+                    </div>
+                    <div className="card-container" style={{ backgroundColor: "#A3B18A", width: "65vh", marginRight: "0px" }}>
+                        <div>
+                            <div style={{ display: "flex", justifyContent: "space-between" }}>
+                                <p className='text-light' style={{ fontSize: "12px", }}>Date: {selectedEvent?.time}</p>
+                            </div>
+                            <h3 className='text-light' style={{ fontSize: "18px", fontWeight: 'bold' }}>{selectedEvent?.title}</h3>
+                            <hr className="styled-line" />
+                            <p className='text-light' style={{ fontSize: "14px", marginTop: "10px" }}>{selectedEvent?.description}</p>
+                        </div>
+                        <div style={{ display: "flex", justifyContent: "start" }}>
+                            <MdOutlineTimer className='text-light' />
+                            <p className='text-light' style={{ fontSize: "12px", paddingLeft: "5px" }}>Time: {selectedEvent?.time}</p>
+                        </div>
+                    </div>
                 </Modal>
             }
 
-            <Modal
-                isOpen={isModalOpen}
-                onRequestClose={() => setIsModalOpen(false)}
-                style={customStyles}
-            >
-                <h2>Add Event</h2>
-                <input onChange={(e) => setTitle(e.target.value)} />
-                <input type="time" onChange={(e) => setTime(e.target.value)} />
-                <textarea onChange={(e) => setDescription(e.target.value)} placeholder="Description" />
-                <button onClick={handleSave}>Save</button>
-            </Modal>
-        </div>
+            <AddEvents isCalender={true} setIsOpen={setIsModalOpen} isOpen={isModalOpen} saveEdit={false} upComingTempList={upComingTempList} handleMessageChange={handleMessageChange} handleTitleChange={handleTitleChange} save={handleSave} setTime={setTime} />
+        </div >
     );
 }

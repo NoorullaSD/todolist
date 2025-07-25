@@ -1,3 +1,64 @@
+body {
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Pacifico', cursive;
+}
+
+.poppinsHeadText {
+    font-weight: 500;
+}
+
+.poppinsSubHeadText {
+    font-weight: 500;
+    font-size: small;
+}
+
+.poppinsListText {
+    font-weight: 300;
+    font-size: medium;
+}
+
+.listcontainer:hover {
+    background-color: #ccccccff !important;
+}
+
+.badge:hover {
+    background-color: rgb(165, 164, 164) !important;
+}
+
+/* Default placeholder style */
+input::placeholder {
+    font-size: 1rem;
+}
+
+/* Smaller placeholder size for screens below 576px */
+@media (max-width: 575.98px) {
+    input::placeholder {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .message-input-box::placeholder {
+        font-size: 0.8rem;
+    }
+}
+
+
+.truncate-text {
+    display: inline-block;
+    max-width: 10ch;
+    /* limits to 10 characters width */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.listcontainer {
+    border-radius: 6px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 .full-container {
     margin: 0px;
     margin-top: 10px;
@@ -55,6 +116,7 @@
 }
 
 .badge {
+    cursor: pointer;
     background-color: #dbdada;
     color: rgb(61, 60, 60);
 }
