@@ -1,6 +1,6 @@
 // src/component/Calendar.jsx
 
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -31,6 +31,14 @@ export default function Calendar() {
         title: "",
         description: ""
     }]);
+
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const handleSave = () => {
         const now = new Date();
@@ -114,8 +122,8 @@ export default function Calendar() {
                     onRequestClose={() => setIsEventModalOpen(false)}
                     style={{
                         content: {
-                            width: '80vh',
-                            height: '60vh',
+                            width: windowWidth < 576 ? '40vh' : '80vh',
+                            height: windowWidth < 576 ? '70vh' : '60vh',
                             backgroundColor: "transparent",
                             margin: 'auto', // center horizontally
                             padding: '20px',
@@ -134,7 +142,7 @@ export default function Calendar() {
                         <h4 className='display-6 text-light'>{"Your task here!"}</h4>
                         <ImCross className='text-light' style={{ marginBottom: "5px", cursor: 'pointer' }} onClick={() => setIsEventModalOpen(false)} />
                     </div>
-                    <div className="card-container" style={{ backgroundColor: "#A3B18A", width: "65vh", marginRight: "0px" }}>
+                    <div className="card-container" style={{ backgroundColor: "#A3B18A", width: windowWidth < 600 ? '38vh' : '65vh', marginRight: "0px" }}>
                         <div>
                             <div style={{ display: "flex", justifyContent: "space-between" }}>
                                 <p className='text-light' style={{ fontSize: "12px", }}>Date: {selectedEvent?.time}</p>
