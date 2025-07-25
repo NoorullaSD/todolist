@@ -25,6 +25,7 @@ function AddEvents(props) {
             padding: '20px',
             borderRadius: '10px',
         },
+
         overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.5)',
             zIndex: props?.isCalender ? 5 : 0
