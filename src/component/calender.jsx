@@ -122,7 +122,7 @@ export default function Calendar() {
                     onRequestClose={() => setIsEventModalOpen(false)}
                     style={{
                         content: {
-                            width: windowWidth < 576 ? '40vh' : '80vh',
+                            width: windowWidth < 420 ? "35vh" : windowWidth < 576 ? '40vh' : '80vh',
                             height: windowWidth < 576 ? '45vh' : '60vh',
                             backgroundColor: "transparent",
                             margin: 'auto', // center horizontally
@@ -142,7 +142,7 @@ export default function Calendar() {
                         <h4 className='display-6 text-light'>{"Your task here!"}</h4>
                         <ImCross className='text-light' style={{ marginBottom: "5px", cursor: 'pointer' }} onClick={() => setIsEventModalOpen(false)} />
                     </div>
-                    <div className="card-container" style={{ backgroundColor: "#A3B18A", width: windowWidth < 600 ? '38vh' : '65vh', marginRight: "0px" }}>
+                    <div className="card-container" style={{ backgroundColor: "#A3B18A", width: windowWidth < 420 ? "30vh" : windowWidth < 600 ? '38vh' : '65vh', marginRight: "0px" }}>
                         <div>
                             <div style={{ display: "flex", justifyContent: "space-between" }}>
                                 <p className='text-light' style={{ fontSize: "12px", }}>Date: {selectedEvent?.time}</p>

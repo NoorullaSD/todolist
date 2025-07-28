@@ -64,10 +64,11 @@ function NavBarTasks(props) {
                 {
                     list.map((item, index) => {
                         return (
-                            <div key={index} className="listcontainer mb-2  p-2 " style={{ backgroundColor: task == item?.title ? '#ccccccff' : '#f0f0f0' }}>
+                            <div key={index} className="listcontainer mb-2  p-2 "
+                                onClick={() => setTask(item?.title)}
+                                data-bs-dismiss="offcanvas"
+                                style={{ backgroundColor: task == item?.title ? '#ccccccff' : '#f0f0f0' }}>
                                 <div
-                                    data-bs-dismiss="offcanvas"
-                                    onClick={() => setTask(item?.title)}
                                     style={{
                                         display: "flex",
                                         alignItems: "center",
