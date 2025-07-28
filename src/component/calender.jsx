@@ -123,7 +123,7 @@ export default function Calendar() {
                     style={{
                         content: {
                             width: windowWidth < 576 ? '40vh' : '80vh',
-                            height: windowWidth < 576 ? '70vh' : '60vh',
+                            height: windowWidth < 576 ? '45vh' : '60vh',
                             backgroundColor: "transparent",
                             margin: 'auto', // center horizontally
                             padding: '20px',

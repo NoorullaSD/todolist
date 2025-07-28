@@ -19,8 +19,8 @@ function AddEvents(props) {
 
     const customStyles = {
         content: {
-            width: windowWidth < 576 ? '40vh' : '80vh',
-            height: windowWidth < 576 ? '70vh' : '70vh',
+            width: windowWidth < 576 ? '45vh' : '80vh',
+            height: windowWidth < 576 ? (props?.isCalender ? '65vh ' : '55vh') : '70vh',
             margin: 'auto',
             padding: '20px',
             borderRadius: '10px',
@@ -34,7 +34,7 @@ function AddEvents(props) {
 
     return (
         <Modal isOpen={props?.isOpen} style={customStyles} onRequestClose={() => props?.setIsOpen(false)}>
-            <div className='enter-container' style={{ justifyContent: "space-between", height: windowWidth < 576 ? '65vh' : '65vh' }}>
+            <div className='enter-container' style={{ justifyContent: "space-between", height: windowWidth < 576 ? '45vh' : '65vh' }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <h4 style={{ fontSize: windowWidth < 576 && "14px" }}>{props?.saveEdit ? "Edit your task here!" : "Enter your task here!"}</h4>
                     <ImCross size={windowWidth < 576 ? 10 : 16} style={{ marginBottom: "5px", cursor: 'pointer', }} onClick={() => props?.setIsOpen(false)} />

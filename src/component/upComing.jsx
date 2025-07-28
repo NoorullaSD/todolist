@@ -129,8 +129,8 @@ function UpComing() {
                             {
                                 upComingList?.map((item, index) => {
                                     return (
-                                        <div key={index} className="col-lg-4 col-md-6 col-sm-12 col-12">
-                                            <div className="card-container" style={{ backgroundColor: item.color || "#B28D8D" }}>
+                                        <div key={index} className="col-lg-4 col-md-6 col-sm-12 col-12" >
+                                            <div className="card-container" style={{ backgroundColor: item.color || "#B28D8D", marginRight: windowWidth < 576 ? "0px" : "10px", marginLeft: windowWidth < 576 ? "0px" : "10px" }}>
                                                 <div>
                                                     <div style={{ display: "flex", justifyContent: "space-between" }}>
                                                         <p style={{ fontSize: "12px", color: "#555", }}>Date: {item.date}</p>
@@ -152,7 +152,7 @@ function UpComing() {
                                     )
                                 })
                             }
-                            <div className="col-lg-4 col-md-6 col-sm-12" style={{ display: "flex", justifyContent: "center", alignItems: "center", opacity: 0.5, height: "40vh", width: "50vh" }} onClick={() => setIsOpen(true)}>
+                            <div className="col-lg-4 col-md-6 col-sm-12" style={{ display: "flex", justifyContent: "center", alignItems: "center", opacity: 0.5, height: "40vh", width: "60vh" }} onClick={() => setIsOpen(true)}>
                                 <CiCirclePlus size={"100px"} style={{ marginLeft: "-20px", cursor: 'pointer' }} opacity={0.5} />
                             </div>
                         </div>

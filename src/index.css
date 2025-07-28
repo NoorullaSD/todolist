@@ -1,6 +1,5 @@
 body {
-    /* font-family: 'Poppins', sans-serif; */
-    font-family: 'Pacifico', cursive;
+    font-family: 'Pacifico', cursive, 'Poppins', sans-serif;
 }
 
 .poppinsHeadText {
@@ -188,7 +187,6 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-right: 30px;
     margin-top: 10px;
     margin-bottom: 20px;
     border-radius: 6px;

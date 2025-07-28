@@ -118,7 +118,7 @@ function Today() {
                                 todayList?.map((item, index) => {
                                     return (
                                         <div key={index} className="col-lg-4 col-md-6 col-sm-12 col-12">
-                                            <div className="card-container" style={{ backgroundColor: "#F9E4C8" }}>
+                                            <div className="card-container" style={{ backgroundColor: "#F9E4C8", marginRight: windowWidth < 576 ? "0px" : "10px", marginLeft: windowWidth < 576 ? "0px" : "10px" }}>
                                                 <div>
                                                     <div style={{ display: "flex", justifyContent: "space-between" }}>
                                                         <p style={{ fontSize: "12px", color: "#555", }}>Date: {item.date}</p>
