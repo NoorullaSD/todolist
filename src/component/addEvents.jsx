@@ -19,8 +19,8 @@ function AddEvents(props) {
 
     const customStyles = {
         content: {
-            width: windowWidth < 420 ? '35vh' : windowWidth < 576 ? '45vh' : '80vh',
-            height: (windowWidth < 420 && props?.isCalender) ? '55vh' : windowWidth < 420 ? '50vh' : windowWidth < 576 ? (props?.isCalender ? '65vh ' : '55vh') : '70vh',
+            width: windowWidth < 420 ? '30vh' : windowWidth < 576 ? '45vh' : '80vh',
+            height: (windowWidth < 420 && props?.isCalender) ? '55vh' : windowWidth < 420 ? '55vh' : windowWidth < 576 ? (props?.isCalender ? '65vh ' : '55vh') : '70vh',
             margin: 'auto',
             padding: '20px',
             borderRadius: '10px',
